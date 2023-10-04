@@ -35,7 +35,7 @@ export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app); // db es de base de datos
 
 // Initialize services
-export const auth = getAuth(app);
+// export const auth = getAuth(app);
 
 export const createUse = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -55,6 +55,8 @@ export function googleCount() {
 export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);
 
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
+
+// export const stateChanged = (user) => onAuthStateChanged(auth, (user));
 
 // En video usando firebase firestore midu.dev (1:00:41) habla de que el usuario en firebase tiene
 // una propiedad que se llama uid (unit ID) que implica que tiene un identificador unico para ese

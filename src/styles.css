@@ -212,6 +212,7 @@
     border-radius: 5rem;
     width: 1.5rem;
     height: 1.5rem;
+}
 
 .user-name {
     grid-area: name;

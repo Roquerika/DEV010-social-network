@@ -1,9 +1,10 @@
-import {
-  collection, getDocs, addDoc, serverTimestamp,
-} from 'firebase/firestore';
-import { db, auth } from '../firebase/firebaseConfig';
+// import {
+//   collection, getDocs, addDoc, serverTimestamp,
+// } from 'firebase/firestore';
+// import { db } from '../firebase/firebaseConfig';
 import iconoNav from '../assets/iconoBlanco.png';
 import generalUser from '../assets/general-user.png';
+import { auth } from '../lib/index';
 // import iconoEditar from '../assets/iconos/icono-editar.png';
 
 const user = auth.currentUser;

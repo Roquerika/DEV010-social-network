@@ -1,9 +1,10 @@
 import {
   collection, addDoc, onSnapshot, getDocs, query,
 } from 'firebase/firestore';
-import { auth, db } from '../firebase/firebaseConfig';
+import { db } from '../firebase/firebaseConfig';
 import iconoNav from '../assets/iconoBlanco.png';
 import generalUser from '../assets/general-user.png';
+import onAuthStateChanged, { auth } from '../lib/index';
 
 // const userLogin = localStorage.getItem('user');
 // console.log(userLogin);
@@ -21,10 +22,13 @@ function createPostCard(data) { /* cambio de content por data */
   const dateElement = document.createElement('p');
   dateElement.classList.add('date');
   const date = data.createdAt.toDate();
+  const pictureUser = document.createElement('img');
+  pictureUser.classList.add('user-img');
+  pictureUser.src = data.avatar || generalUser;
   // Convierte fecha a una cadena legible
   // console.log('fecha de creación: ', date);
   dateElement.textContent = `${date.toLocaleDateString()}`;
-  card.append(userNameElement, dateElement, contentElement);
+  card.append(userNameElement, dateElement, contentElement, pictureUser);
   // console.log(card); /* muestra el contenido escrito en el posts */
   return card;
 }
@@ -41,7 +45,7 @@ function loadPosts(myPosts) {
     myPosts.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const data = doc.data(); // Transforma objeto de Firebase a objeto de JS
-      console.log(data.userID);
+      // console.log(data.userID);
       const postCard = createPostCard({ ...data, id: doc.id });
       myPosts.appendChild(postCard);
     });
@@ -104,6 +108,7 @@ function addPost({
       .then((docRef) => {
         console.log('Publicación agregada con ID: ', docRef.id);
         resolve(docRef.id);
+        console.log(collection);
       })
       .catch((error) => {
         console.error('Error al agregar la publicación: ', error);
@@ -182,7 +187,7 @@ function posts(navigateTo) {
     if (content) {
       // Obtener datos del usuario actual
       // const currentUser = auth.currentUser;
-
+      onAuthStateChanged();
       // Verificar si el usuario está autenticado y tiene los datos necesarios
       /* if (currentUser && currentUser.displayName && currentUser.photoURL) {
         const userName = currentUser.displayName;

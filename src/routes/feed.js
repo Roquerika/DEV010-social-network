@@ -1,7 +1,9 @@
 import {
   collection, onSnapshot,
 } from 'firebase/firestore';
-import { db, auth } from '../firebase/firebaseConfig';
+import { db } from '../firebase/firebaseConfig';
+// import {auth} from '../lib/index';
+
 import iconoNav from '../assets/iconoBlanco.png';
 import iconoCerrar from '../assets/iconos/icono-cerrar.png';
 import generalUser from '../assets/general-user.png';
@@ -17,7 +19,7 @@ function createPostCard(data) {
   pictureUser.classList.add('user-img');
   // pictureUser.src = auth.currentUser.photoURL ? auth.currentUser.photoURL :
   // '../src/assets/person_FILL1_wght400_GRAD0_opsz24.png';
-  pictureUser.src = data.avatar || picUser;
+  pictureUser.src = data.avatar || generalUser;
   const contentElement = document.createElement('p');
   contentElement.classList.add('post');
   contentElement.textContent = data.content;
