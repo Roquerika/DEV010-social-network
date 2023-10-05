@@ -42,9 +42,9 @@ export function addProfile({
   }
 });
 
-onAuthStateChanged: (callback) => {
-  auth.onAuthStateChanged(callback);
-},
+// onAuthStateChanged: (callback) => {
+//   auth.onAuthStateChanged(callback);
+// },
 
 
 // Aquí puedes mostrar la foto del usuario en tu aplicación
