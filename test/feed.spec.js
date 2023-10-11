@@ -12,4 +12,3 @@ describe('loadPosts', () => {
     expect(post).toBeDefined();
   });
 });
-
