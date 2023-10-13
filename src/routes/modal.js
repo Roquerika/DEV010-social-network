@@ -16,9 +16,6 @@ function createModal(message) {
   const modalMessage = document.createElement('p');
   modalMessage.textContent = message;
 
-  // const errorCodeElement = document.createElement('p');
-  // errorCodeElement.textContent = `Código de error: ${errorCode}`;
-
   const closeButton = document.createElement('button');
   closeButton.classList.add('close-button');
   closeButton.textContent = 'X';
@@ -27,7 +24,6 @@ function createModal(message) {
   });
 
   modalContent.appendChild(modalMessage);
-  // modalContent.appendChild(errorCodeElement);
   modalContent.appendChild(closeButton);
   modal.appendChild(modalContent);
   document.body.appendChild(modal);
