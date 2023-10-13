@@ -1,8 +1,4 @@
 // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-// myFunction();
-
 // Importamos los archivos js que permitirán la visualización
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/firebaseConfig';
@@ -10,9 +6,13 @@ import home from './routes/home.js';
 import login from './routes/login.js';
 import signin from './routes/userRegister.js';
 import error from './routes/error.js';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import feed from './routes/feed.js';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import likes from './routes/likes.js';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import posts from './routes/posts.js';
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import profile from './routes/profile.js';
 
 // Crear una variable con arreglo de objetos para tener ruta e identificar a qué elemento pertenece
@@ -65,8 +65,6 @@ navigateTo(window.location.pathname || defaultRoute);
 // const user = auth.currentUser;
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
     console.log(uid);
     // ...

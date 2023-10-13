@@ -98,7 +98,7 @@ describe('userRegister', () => {
     createUse().then(() => {
       expect(emailVerification).toHaveBeenCalled();
       expect(emailVerification).toHaveBeenCalledWith({ email: 'correo@example.com' });
-    }).catch((err) => console.log({ err }));
+    });
   });
 });
 

@@ -23,16 +23,16 @@ describe('deletePost', () => {
   });
 
   it('Deberia llamar a la funcion deleteDoc cuando es ejecutada', async () => {
-    await deletePost('bjidjg');
+    await deletePost('Contenido');
     expect(deleteDoc).toHaveBeenCalled();
   });
 });
 
 describe('updatePost', () => {
   test('debería editar post', async () => {
-    updateDoc.mockReturnValueOnce({ constainer: 'newText' });
+    updateDoc.mockReturnValueOnce({ container: 'newText' });
     const response = await updatePost('12345', 'newText');
-    expect(response.constainer).toBe('newText');
+    expect(response.container).toBe('newText');
   });
 
   test('debería llamar a la función updateDoc cuando es ejecutada', async () => {
@@ -61,7 +61,7 @@ describe('onGetPosts', () => {
   });
 
   it('Deberia llamar a la funcion onSnapshot cuando es ejecutada', async () => {
-    onGetPosts('bjidjg');
+    onGetPosts('Contenido');
     expect(onSnapshot).toHaveBeenCalled();
   });
 });
