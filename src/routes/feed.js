@@ -33,7 +33,7 @@ export function createPostCard(data) {
 
   const buttonLike = document.createElement('img');
   buttonLike.classList.add('like');
-  // buttonLike.src = data.likes.includes(auth.currentUser.uid) ? likeRosa : likeGris;
+
   // Verifica si 'likes' está definido y es un arreglo antes de usarlo
   if (Array.isArray(data.likes)) {
     // Comprueba si el usuario actual (auth.currentUser.uid) está en el arreglo 'likes'
@@ -50,11 +50,6 @@ export function createPostCard(data) {
   likesCount.classList.add('likesCount');
   // likesCount.textContent = data.likesCount /* `${doc[0].likes.length}` */;
   
-  // Actualiza likesCount en el elemento HTML
-  /* const updateLikesCount = (count) => {
-    likesCount.textContent = count;
-  }; */
-
   // Verifica si data.likesCount tiene un valor válido
   if (typeof data.likesCount === 'number') {
     likesCount.textContent = data.likesCount;
@@ -111,7 +106,6 @@ function feed(navigateTo) {
   const profileName = document.createElement('h4');
   const pictureUser = document.createElement('img');
   const textSignoff = document.createElement('span');
-  // const buttonSignoff = document.createElement('img');
 
   const main = document.createElement('main');
 
@@ -158,8 +152,6 @@ function feed(navigateTo) {
 
   postTitle.textContent = 'LO QUE SE DICE EN NEW WAVE:';
 
-  // buttonSignoff.src = iconoCerrar;
-  // buttonSignoff.classList.add('buttonSignoff');
   textSignoff.textContent = 'Cerrar sesión';
   textSignoff.classList.add('specialText');
   textSignoff.addEventListener('click', () => {

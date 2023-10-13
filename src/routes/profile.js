@@ -5,7 +5,6 @@ import { getAuth } from 'firebase/auth';
 import { db, auth } from '../firebase/firebaseConfig';
 import iconoNav from '../assets/iconoBlanco.png';
 import generalUser from '../assets/general-user.png';
-// import iconoEditar from '../assets/iconos/icono-editar.png';
 import navHome from '../assets/iconos/icono-home-off.png';
 import navLikes from '../assets/iconos/icono-likes-off.png';
 import navPosts from '../assets/iconos/icono-post-off.png';
@@ -22,7 +21,6 @@ if (user !== null) {
 
   // The user's ID, unique to the Firebase project. Do NOT use
   // this value to authenticate with your backend server, if
-  // you have one. Use User.getToken() instead.
   const uid = user.uid;
 }
 
@@ -38,9 +36,6 @@ function profile(navigateTo) {
 
   const profileContainer = document.createElement('div');
   const profileTitle = document.createElement('p');
-  // const nameTitle = document.createElement('div');
-  // const name = document.createElement('div');
-  // const nameInput = document.createElement('input');
 
   const nav = document.createElement('nav');
   const menuContainer = document.createElement('div');
@@ -75,7 +70,6 @@ function profile(navigateTo) {
   name.textContent = getAuth().currentUser?.displayName;
   profileName.textContent = getAuth().currentUser?.email;
   pictureUser.src = auth.currentUser?.photoURL ? auth.currentUser?.photoURL : generalUser;
-  // buttonEdit.src = iconoEditar;
 
   profileTitle.textContent = 'PERFIL DE USUARIA:';
 
